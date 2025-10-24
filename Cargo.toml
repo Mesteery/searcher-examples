@@ -1,7 +1,25 @@
 [workspace]
-members = [
-    "cli",
-    "jito_protos",
-    "searcher_client",
-]
+members = ["cli", "jito_protos", "searcher_client"]
 resolver = "2"
+
+[workspace.dependencies]
+clap = { version = "4", features = ["derive", "env"] }
+env_logger = "0.10"
+jito-protos = { path = "jito_protos" }
+log = "0.4.17"
+jito-searcher-client = { path = "searcher_client" }
+tokio = { version = "1", features = ["rt-multi-thread"] }
+futures-util = "0.3.28"
+thiserror = "1.0.40"
+
+prost-types = "0.14"
+tonic = { version = "0.14", features = ["tls-webpki-roots"] }
+prost = "0.14"
+tonic-prost = "0.14"
+
+bincode = "1.3.3"
+bytes = "1.4.0"
+solana-metrics = "2.3"
+solana-perf = "2.3"
+solana-client = "2.3"
+solana-sdk = "2.3"
